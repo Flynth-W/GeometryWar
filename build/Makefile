@@ -1,10 +1,11 @@
-OBJS = ./../src/main.o 
+OBJS = ../src/main.o \
+	   ../src/app/app.o 
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
 CFLAGS = -Wall
 bin: $(OBJS)
-	g++ -o $(FILE_BIN) $(OBJS)
+	g++ -o $(FILE_BIN) $(OBJS) $(LIBS) $(CFLAGS)
 %.o:%.cpp
 	g++ -c $< -o $@
 clean:
