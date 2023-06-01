@@ -26,6 +26,7 @@ void App::Init(){
 
     glewInit();
     glEnable(GL_DEPTH_TEST);
+    orchestrator.Init();
 }
 
 void App::Events(){
@@ -33,9 +34,11 @@ void App::Events(){
 };
 
 void App::Update(){
+    orchestrator.Update();
 }
 
 void App::Render(){
+    orchestrator.Render();
     glfwSwapBuffers(window);
 };
 
