@@ -1,5 +1,7 @@
 OBJS = ../src/main.o \
-	   ../src/app/app.o 
+	   ../src/app/app.o \
+	   ../src/scenes/orchestrator.o \
+	   ../src/scenes/beginGame/beginGame.o 
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
