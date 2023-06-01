@@ -7,6 +7,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 class App{
     public:
         GLFWwindow *window;
+        double deltaTime;
     private:
         unsigned int height, width;
         const char *title = "Asteroid"; 
