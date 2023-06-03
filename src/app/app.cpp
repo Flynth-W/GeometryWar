@@ -25,7 +25,6 @@ void App::Init(){
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     glewInit();
-    glEnable(GL_DEPTH_TEST);
     orchestrator.Init();
 }
 
