@@ -9,13 +9,15 @@ RectangleDraw StartButton(){
     rectangle.setShader(shadera);
     float vertex[] = {
         // positions          // normals           
-        -0.5f, -0.5f, 0.0f,  1.0f,  1.0f, 1.0f,  
-         0.5f, -0.5f, 0.0f,  1.0f,  1.0f, 1.0f,  
-         0.5f,  0.5f, 0.0f,  1.0f,  1.0f, 1.0f,  
-         0.5f,  0.5f, 0.0f,  1.0f,  1.0f, 1.0f,  
-        -0.5f,  0.5f, 0.0f,  1.0f,  1.0f, 1.0f,  
-        -0.5f, -0.5f, 0.0f,  1.0f,  1.0f, 0.0f,  
+        -0.2f, -0.2f, 0.0f,  1.0f,  1.0f, 1.0f,  
+         0.2f, -0.2f, 0.0f,  1.0f,  1.0f, 1.0f,  
+         0.2f,  0.2f, 0.0f,  1.0f,  1.0f, 1.0f,  
+         
+         0.2f,  0.2f, 0.0f,  1.0f,  1.0f, 1.0f,  
+        -0.2f,  0.2f, 0.0f,  1.0f,  1.0f, 1.0f,  
+        -0.2f, -0.2f, 0.0f,  1.0f,  1.0f, 0.0f,  
     };
     rectangle.setVetices(vertex,sizeof(vertex));
+    rectangle.setSize(100);
     return rectangle;
 };
