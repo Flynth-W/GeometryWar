@@ -25,6 +25,9 @@ void App::Init(){
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     glewInit();
+    orchestrator.setMouse(mouse);
+    orchestrator.setKeys(keys);
+    orchestrator.setMouseKeys(mouseKeys);
     orchestrator.Init();
 }
 
