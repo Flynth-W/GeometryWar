@@ -1,11 +1,11 @@
 #include "./app/app.hpp"
+#include "./factory/app/app.hpp"
 #include <iostream>
 #include <chrono>
 using namespace std;
 
 int main() {
-    App app;
-    app.Init();
+    App app(factoryApp());
     
     auto lastTime = std::chrono::system_clock::now();
     while(app.getRun()){
