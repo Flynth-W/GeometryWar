@@ -76,3 +76,14 @@ void Event::mouse_button_callback(GLFWwindow *window, int button, int action, in
   }
   
 }
+void Event::setKey(std::unordered_map<int, ButtonKey> *keys, unsigned int KEY){
+    (*keys)[KEY] = ButtonKey();
+}
+bool Event::getIfStateKey(std::unordered_map<int, ButtonKey> *keys, unsigned int KEY, ButtonState state){
+
+    auto Key= keys->find(GLFW_MOUSE_BUTTON_LEFT);
+    if( Key->second.getState() == state ){
+        return true;
+    }
+    return false;
+}
