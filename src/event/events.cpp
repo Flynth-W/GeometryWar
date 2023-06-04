@@ -81,7 +81,7 @@ void Event::setKey(std::unordered_map<int, ButtonKey> *keys, unsigned int KEY){
 }
 bool Event::getIfStateKey(std::unordered_map<int, ButtonKey> *keys, unsigned int KEY, ButtonState state){
 
-    auto Key= keys->find(GLFW_MOUSE_BUTTON_LEFT);
+    auto Key= keys->find(KEY);
     if( Key->second.getState() == state ){
         return true;
     }
