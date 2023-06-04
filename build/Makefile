@@ -3,7 +3,9 @@ OBJS = ../src/main.o \
 	   ../src/scenes/orchestrator.o \
 	   ../src/scenes/beginGame/beginGame.o \
 	   ../src/utils/classes/Draw/rectangle/rectangle.o \
-	   ../src/factory/objets/startButton.o
+	   ../src/factory/objets/startButton.o \
+	   ../src/factory/app/app.o \
+	   ../src/event/events.o 
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
