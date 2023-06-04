@@ -41,6 +41,15 @@ void App::Render(){
     glfwSwapBuffers(window);
 };
 
+void App::setKeys(std::unordered_map<int, ButtonKey> *_keys){
+  keys=_keys;
+}
+void App::setMouse(Mouse *_mouse){
+  mouse =_mouse;
+}
+void App::setMouseKeys(std::unordered_map<int, ButtonKey> *_mousekeys){
+  mouseKeys=_mousekeys;
+}
 bool App::getRun(){
   return (!glfwWindowShouldClose(window) ) ;
 }
