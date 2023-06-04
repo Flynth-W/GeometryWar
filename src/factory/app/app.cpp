@@ -21,7 +21,6 @@ void mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 
 App factoryApp(){
     App app;
-    app.Init();
     //events
         // ad keys
     keys[GLFW_KEY_P] =  ButtonKey();
@@ -31,9 +30,11 @@ App factoryApp(){
     keys[GLFW_KEY_S] =  ButtonKey();
     keys[GLFW_KEY_A] =  ButtonKey();
     keys[GLFW_KEY_D] =  ButtonKey();
+    Event::setKey(&keys, GLFW_KEY_ENTER);
     //add mouse buttons 
     mouseKeys[GLFW_MOUSE_BUTTON_RIGHT] = ButtonKey();
-    mouseKeys[GLFW_MOUSE_BUTTON_LEFT] = ButtonKey();
+    //mouseKeys[GLFW_MOUSE_BUTTON_LEFT] = ButtonKey();
+    Event::setKey(&mouseKeys, GLFW_MOUSE_BUTTON_LEFT);
     mouseKeys[GLFW_MOUSE_BUTTON_MIDDLE] = ButtonKey();
     mouseKeys[GLFW_MOUSE_BUTTON_4] = ButtonKey();
     mouseKeys[GLFW_MOUSE_BUTTON_5] = ButtonKey();
@@ -43,6 +44,8 @@ App factoryApp(){
     app.setKeys(&keys);
     app.setMouse(&mouse);
     app.setMouseKeys(&mouseKeys);
+    
+    app.Init();
 
     glfwSetKeyCallback (app.window, key_callback);
     glfwSetScrollCallback(app.window, scroll_callback);
