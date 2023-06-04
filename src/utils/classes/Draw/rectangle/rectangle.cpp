@@ -33,3 +33,28 @@ void RectangleDraw::setVetices(float *vertex, unsigned int vertexSize){
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
 }
+void RectangleDraw::setSize(int size){
+    this->size=size;
+}
+
+bool RectangleDraw::pointIn(int x, int y){
+    unsigned int positionx=500;
+    unsigned int positiony=500;
+    bool result = false;
+    // in x
+    int x1 =  positionx - size; 
+    int x2 =  positiony + size; 
+    if( x1 < x && x < x2  ){
+         result =true ; 
+    }
+    // in y
+    int y1 = positionx - size; 
+    int y2 = positiony + size; 
+    if( result &&( y1 < y && y < y2 )  ){
+         result =true ; 
+    }else{
+        result = false ;
+    }
+    
+    return result;
+}
