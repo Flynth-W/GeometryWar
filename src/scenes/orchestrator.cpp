@@ -1,13 +1,8 @@
 #include "orchestrator.hpp"
 
 void Orchestrator::Init(){
-    stage = new BeginGame();
-    stage->setMouse(mouse);
-    stage->setKeys(keys);
-    stage->setMouseKeys(mouseKeys);
-    stage->Init();
-    typeStage = stage->getStage();
-
+    this->typeStage = Stages::one;
+    this->changeStage();
 }
 
 void Orchestrator::Update(){
@@ -26,6 +21,7 @@ void Orchestrator::changeStage(){
             stage->setMouse(mouse);
             stage->setKeys(keys);
             stage->setMouseKeys(mouseKeys);
+            stage->setDeltaTime(deltaTime);
             stage->Init();
           break;
         case Stages::one:
@@ -33,6 +29,7 @@ void Orchestrator::changeStage(){
             stage->setMouse(mouse);
             stage->setKeys(keys);
             stage->setMouseKeys(mouseKeys);
+            stage->setDeltaTime(deltaTime);
             stage->Init();
           break;
     }
@@ -44,7 +41,6 @@ void Orchestrator::Render(){
 
 void Orchestrator::setDeltaTime(double *deltaTime){
     this->deltaTime=deltaTime;
-    stage->setDeltaTime(deltaTime);
 }
 void Orchestrator::setMouse(Mouse *mouse){
     this->mouse=mouse;

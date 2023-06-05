@@ -28,6 +28,7 @@ void App::Init(){
     orchestrator.setMouse(mouse);
     orchestrator.setKeys(keys);
     orchestrator.setMouseKeys(mouseKeys);
+    orchestrator.setDeltaTime(&deltaTime);
     orchestrator.Init();
 }
 
