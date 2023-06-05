@@ -44,5 +44,6 @@ class Event{
     static void mouse_callback(GLFWwindow* window, double xposIn, double yposIn, Mouse * mouse);
     static void mouse_button_callback(GLFWwindow* window, int button, int action, int mods, std::unordered_map<int,ButtonKey>*mouse) ;
     static bool getIfStateKey(std::unordered_map<int,ButtonKey>*keys,unsigned int KEY,ButtonState state);
+    static bool getIfStateKey(std::unordered_map<int,ButtonKey>*keys,unsigned int KEY,ButtonState state, ButtonState state1);
     static void setKey(std::unordered_map<int,ButtonKey>*keys,unsigned int KEY);
 };

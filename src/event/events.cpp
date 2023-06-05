@@ -87,3 +87,12 @@ bool Event::getIfStateKey(std::unordered_map<int, ButtonKey> *keys, unsigned int
     }
     return false;
 }
+bool Event::getIfStateKey(std::unordered_map<int, ButtonKey> *keys, unsigned int KEY, ButtonState state, ButtonState state1){
+
+    auto Key= keys->find(KEY);
+    ButtonState stateKey=Key->second.getState();
+    if( stateKey == state  || stateKey == state1){
+        return true;
+    }
+    return false;
+}
