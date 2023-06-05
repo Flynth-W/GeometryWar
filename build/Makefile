@@ -6,7 +6,9 @@ OBJS = ../src/main.o \
 	   ../src/factory/objets/startButton.o \
 	   ../src/factory/app/app.o \
 	   ../src/event/events.o  \
-	   ../src/scenes/one/one.o 
+	   ../src/scenes/one/one.o \
+	   ../src/utils/classes/Draw/triangle/triangle.o \
+	   ../src/utils/classes/nave/nave.o 
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
