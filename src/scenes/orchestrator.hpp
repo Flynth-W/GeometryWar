@@ -1,6 +1,9 @@
 #pragma once
 #include "beginGame/beginGame.hpp"
+#include "one/one.hpp"
+
 #include "../event/events.hpp"
+
 class Orchestrator{
     private:
         Stage *stage;
@@ -17,4 +20,6 @@ class Orchestrator{
         void setMouse(Mouse *mouse);
         void setKeys(std::unordered_map<int,ButtonKey>*Keys);
         void setMouseKeys(std::unordered_map<int,ButtonKey>*mouseKeys);
+    private:
+        void changeStage();
 };

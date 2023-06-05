@@ -1,17 +1,41 @@
 #include "orchestrator.hpp"
 
 void Orchestrator::Init(){
-    typeStage = Stages::beginGame;
     stage = new BeginGame();
     stage->setMouse(mouse);
     stage->setKeys(keys);
     stage->setMouseKeys(mouseKeys);
     stage->Init();
+    typeStage = stage->getStage();
 
 }
 
 void Orchestrator::Update(){
-    stage->Update();
+    if(typeStage == stage->getStage() ){
+        stage->Update();
+        return;
+    }
+    typeStage = stage->getStage();
+    this->changeStage();
+    return;
+}
+void Orchestrator::changeStage(){
+    switch (typeStage) {
+        case Stages::beginGame:
+            stage = new BeginGame();
+            stage->setMouse(mouse);
+            stage->setKeys(keys);
+            stage->setMouseKeys(mouseKeys);
+            stage->Init();
+          break;
+        case Stages::one:
+            stage = new OneStage();
+            stage->setMouse(mouse);
+            stage->setKeys(keys);
+            stage->setMouseKeys(mouseKeys);
+            stage->Init();
+          break;
+    }
 }
 
 void Orchestrator::Render(){
