@@ -1,5 +1,6 @@
 #pragma once
 #include "../stage.hpp"
+#include "../../utils/classes/nave/nave.hpp"
 
 class OneStage:public Stage{
     private:
@@ -8,6 +9,7 @@ class OneStage:public Stage{
         std::unordered_map<int,ButtonKey>*mouseKeys;
         Mouse *mouse;
         Stages stage;
+        Nave nave;
     public:
         void Init()   override;
         void Update() override;
