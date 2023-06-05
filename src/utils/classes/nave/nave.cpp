@@ -11,13 +11,16 @@ void Nave::Init(){
          
     };
     triangle.setVetices(vertex,sizeof(vertex));
+    this->radio=0.04;
+    this->position= glm::vec3(-0.8);
+    triangle.setPosition(&this->position);
 
     Event::setKey(keys, GLFW_KEY_J);
     Event::setKey(keys, GLFW_KEY_L);
     Event::setKey(keys, GLFW_KEY_I);
 }
 void Nave::Update(){
-    float translationSpeed = 0.3;
+    float translationSpeed = 0.5;
     float rotationSpeed = 1.0;
     if(Event::getIfStateKey(keys,GLFW_KEY_W, ButtonState::Pressed , ButtonState::Repeat )){
         this->triangle.move(0.0f, float( translationSpeed * *deltaTime ) );
@@ -47,3 +50,10 @@ void Nave::setDeltaTime(double *deltaTime){
 void Nave::setKeys(std::unordered_map<int,ButtonKey>*Keys){
     this->keys=Keys;
 };
+
+glm::vec3 Nave::getPosition(){
+    return this->position;
+}
+double Nave::getRadio(){
+    return this->radio;
+}

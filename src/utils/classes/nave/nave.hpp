@@ -2,11 +2,12 @@
 
 #include "../Draw/triangle/triangle.hpp"
 #include "../../../event/events.hpp"
+#include "../collision.hpp"
 
-class Nave{
+class Nave:public Iobjet_colicion{
     private:
-        int position[2];
         Triangle triangle;
+        double radio;
         double * deltaTime;
         std::unordered_map<int,ButtonKey>*keys;
     public:
@@ -15,4 +16,7 @@ class Nave{
         void setDeltaTime(double *deltaTime);
         void setKeys(std::unordered_map<int,ButtonKey>*Keys) ;
         void Render();
+
+        glm::vec3 getPosition() override;
+        double getRadio() override;
 };
