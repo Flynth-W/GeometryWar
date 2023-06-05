@@ -40,7 +40,6 @@ void Triangle::setVetices(float *vertex, unsigned int vertexSize){
 }
 
 void Triangle::move(double x, double y){
-    //this->model=glm::translate(model, glm::vec3(x, y, 0.0f));
     this->translate= this->translate + glm::vec3(x,y,0.0f);
 }
 void Triangle::rotate(float angle){
