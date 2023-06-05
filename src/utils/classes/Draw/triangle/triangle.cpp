@@ -9,7 +9,7 @@ Triangle::Triangle(){
 void Triangle::Render(){
     this->shader->use();
     this->model = glm::mat4(1.0);
-    this->model = glm::translate(this->model,translate );
+    this->model = glm::translate(this->model,*translate );
     this->model = glm::rotate(this->model, this->angle, glm::vec3(0.0f, 0.0f, 1.0f));
     
     this->shader->setMat4("model", this->model);
@@ -40,8 +40,11 @@ void Triangle::setVetices(float *vertex, unsigned int vertexSize){
 }
 
 void Triangle::move(double x, double y){
-    this->translate= this->translate + glm::vec3(x,y,0.0f);
+    *this->translate= *this->translate + glm::vec3(x,y,0.0f);
 }
 void Triangle::rotate(float angle){
     this->angle += angle;
+}
+void Triangle::setPosition(glm::vec3 *position){
+    this->translate=position;
 }
