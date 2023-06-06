@@ -9,9 +9,12 @@ OBJS = ../src/main.o \
 	   ../src/scenes/one/one.o \
 	   ../src/utils/classes/Draw/triangle/triangle.o \
 	   ../src/utils/classes/nave/nave.o \
-	   ../src/utils/classes/Draw/square/square.cpp \
+	   ../src/utils/classes/Draw/square/square.o \
 	   ../src/utils/classes/square/square.o \
-	   ../src/utils/classes/collision.o 
+	   ../src/utils/classes/collision.o \
+	   ../src/utils/classes/sysSquares/sysSquares.o \
+	   ../src/utils/classes/bullet/bullet.o \
+	   ../src/utils/classes/Draw/bullet/bullet.o
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
