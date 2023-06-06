@@ -33,6 +33,7 @@ void App::Init(){
 }
 
 void App::Events(){
+    Event::PreHandleEvent(keys, mouse, mouseKeys);
     glfwPollEvents();  
 };
 
