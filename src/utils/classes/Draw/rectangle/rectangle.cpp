@@ -3,7 +3,8 @@
 
 void RectangleDraw::Render(){
     this->shader->use();
-    this->shader->setMat4("model", *model);
+    this->model = glm::mat4(1.0);
+    this->shader->setMat4("model", model);
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
@@ -14,7 +15,7 @@ void RectangleDraw::setShader(Shader shader){
 }
 
 void RectangleDraw::setPosition(glm::mat4 *model){
-    this->model=model;
+    this->model=*model;
 }
 
 void RectangleDraw::setVetices(float *vertex, unsigned int vertexSize){
