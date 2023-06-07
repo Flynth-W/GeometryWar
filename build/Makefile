@@ -15,7 +15,9 @@ OBJS = ../src/main.o \
 	   ../src/utils/classes/sysSquares/sysSquares.o \
 	   ../src/utils/classes/bullet/bullet.o \
 	   ../src/utils/classes/Draw/bullet/bullet.o \
-	   ../src/utils/classes/sysBullets/sysBullet.o 
+	   ../src/utils/classes/sysBullets/sysBullet.o \
+	   ../src/utils/classes/song/song.o \
+	   ./irrKlang/bin/linux-gcc-64/libIrrKlang.so  
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
