@@ -5,7 +5,7 @@ void Nave::Init(){
     Shader shadera("./shader/square.vs" ,"./shader/square.fs");
     triangle.setShader(shadera);
     float vertex[] = {
-        // positions          // normals           
+        // positions          // colors           
         -0.04f, -0.04f, 0.0f,  0.0f,  0.4f, 0.7f,  
          0.04f, -0.04f, 0.0f,  0.0f,  0.4f, 0.7f,  
          0.0f,  0.04f, 0.0f,   0.0f,  0.2f, 0.5f,  
@@ -29,9 +29,8 @@ void Nave::Init(){
 void Nave::Update(){
     bullets.Update();
     float translationSpeed = 0.9;
-    float rotationSpeed = 1.0;
+    float rotationSpeed = 2.0;
     float limit= 1.0 - this->radio - 0.03;
-    //std::cout << this->position.x <<"  " << this->position.y << std::endl;
     if(Event::getIfStateKey(keys,GLFW_KEY_W, ButtonState::Pressed , ButtonState::Repeat ) &&  limit > position->y){
         this->triangle.move(0.0f, float( translationSpeed * *deltaTime ) );
     }
@@ -53,9 +52,6 @@ void Nave::Update(){
         this->triangle.rotate(float( -rotationSpeed * *deltaTime ));
     }
     if(Event::getIfStateKey(keys,GLFW_KEY_I, ButtonState::Released )){
-        //bullet.setDeltaTime(deltaTime);
-        //bullet.Init( *this->position , this->angle );
-        //handleCollision->add(&bullet);
         bullets.AddBullet(*this->position, this->angle);
     }
 }
@@ -80,7 +76,6 @@ double Nave::getRadio(){
     return this->radio;
 }
 void Nave::colision(Iobjet_colicion *a){
-    //std::cout << "nave" << std::endl;
     if(a->type == TypeObjet::Square){
         this->run=false;
     }

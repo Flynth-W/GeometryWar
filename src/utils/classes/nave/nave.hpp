@@ -12,7 +12,6 @@ class Nave:public Iobjet_colicion{
         double * deltaTime;
         std::unordered_map<int,ButtonKey>*keys;
         bool run=false;
-        //Bullet bullet;
         SysBullet bullets;
         float angle;
         CollisionsHandler *handleCollision;
