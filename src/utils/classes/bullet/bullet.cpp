@@ -64,10 +64,4 @@ void Bullet::colision(Iobjet_colicion *a){
     if(a->type == TypeObjet::Square){
         this->run=false;
     }
-    if(a->type == TypeObjet::Nave){
-        std::cout << "crash nave" << std::endl;
-    }
-    if(a->type == TypeObjet::Bullet){
-        std::cout << "wow bullet" << std::endl;
-    }
 }
