@@ -1,14 +1,23 @@
 #include "bullet.hpp"
 #include <iostream>
 
-
-void DrawBullet::Render(){
-    this->shader->use();
+void DrawBullet::Init(){
     this->model = glm::mat4(1.0);
-    this->model = glm::translate(this->model,this->position );
+    this->model = glm::translate(this->model,this->initialPosition );
     this->model = glm::rotate(this->model, this->angle, glm::vec3(0.0f, 0.0f, 1.0f));
     this->model = glm::translate(this->model,this->translate );
     
+    this->position= new glm::vec3(this->model[3][0],this->model[3][1],0.0);
+}
+void DrawBullet::Render(){
+    this->shader->use();
+    this->model = glm::mat4(1.0);
+    this->model = glm::translate(this->model,this->initialPosition );
+    this->model = glm::rotate(this->model, this->angle, glm::vec3(0.0f, 0.0f, 1.0f));
+    this->model = glm::translate(this->model,this->translate );
+    
+    *this->position=glm::vec3(this->model[3][0],this->model[3][1],0.0);
+
     this->shader->setMat4("model", model);
     glBindVertexArray(VAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
@@ -38,9 +47,13 @@ void DrawBullet::setVetices(float *vertex, unsigned int vertexSize){
 void DrawBullet::move(double x, double y){
     this->translate= this->translate + glm::vec3(x,y,0.0f);
 }
+glm::vec3 DrawBullet::getPosition(){
+    return *this->position;
+} 
 
 void DrawBullet::setPosition(glm::vec3 position){
-    this->position=position;
+    this->initialPosition=position;
+
 }
 void DrawBullet::rotate(float angle){
     this->angle += angle;
