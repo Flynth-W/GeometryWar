@@ -4,7 +4,7 @@
 #include "../../../event/events.hpp"
 #include "../collision.hpp"
 #include "../sysBullets/sysBullet.hpp"
-
+#include "../song/song.hpp"
 class Nave:public Iobjet_colicion{
     private:
         Triangle triangle;
@@ -15,6 +15,7 @@ class Nave:public Iobjet_colicion{
         SysBullet bullets;
         float angle;
         CollisionsHandler *handleCollision;
+        Song *song;
     public:
         void Init();
         void Update();

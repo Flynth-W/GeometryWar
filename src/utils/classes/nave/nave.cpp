@@ -24,7 +24,7 @@ void Nave::Init(){
     bullets.setDeltaTime(this->deltaTime);
     bullets.setCollisionHandler(this->handleCollision);
     bullets.Init();
-
+    this->song= new Song("./songs/bullet.wav",false);
 }
 void Nave::Update(){
     bullets.Update();
@@ -53,6 +53,7 @@ void Nave::Update(){
     }
     if(Event::getIfStateKey(keys,GLFW_KEY_I, ButtonState::Released )){
         bullets.AddBullet(*this->position, this->angle);
+        this->song->anotherPlay("./songs/bullet.wav");
     }
 }
 void Nave::Render(){

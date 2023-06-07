@@ -7,3 +7,6 @@ Song::Song(const char *file, bool loop){
 void Song::play(){
       engine->setAllSoundsPaused(false);
 }
+void Song::anotherPlay(const char *file){
+    engine->play2D(file);
+}

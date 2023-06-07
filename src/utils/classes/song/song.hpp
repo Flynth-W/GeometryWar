@@ -10,4 +10,5 @@ class Song{
     public:
         Song(const char *file, bool loop);
         void play();
+        void anotherPlay(const char *file);
 };
