@@ -4,6 +4,7 @@
 #include "../../utils/classes/square/square.hpp"
 #include "../../utils/classes/sysSquares/sysSquares.hpp"
 #include "../../utils/classes/bullet/bullet.hpp"
+#include "../../utils/classes/song/song.hpp"
 
 class OneStage:public Stage{
     private:
@@ -16,6 +17,7 @@ class OneStage:public Stage{
         //Square square;
         SysSquare sysSquare;
         CollisionsHandler handleCollision;
+        Song *song;
     public:
         void Init()   override;
         void Update() override;

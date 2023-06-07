@@ -10,6 +10,8 @@ void OneStage::Init(){
     sysSquare.setCollisionHandler(&handleCollision);
     sysSquare.setDeltaTime(deltaTime);
     sysSquare.Init();
+    this->song= new Song("./songs/baseSong.wav",true);
+    this->song->play();
 };
 void OneStage::Update(){
     handleCollision.resertState();
