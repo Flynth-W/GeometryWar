@@ -14,7 +14,8 @@ OBJS = ../src/main.o \
 	   ../src/utils/classes/collision.o \
 	   ../src/utils/classes/sysSquares/sysSquares.o \
 	   ../src/utils/classes/bullet/bullet.o \
-	   ../src/utils/classes/Draw/bullet/bullet.o
+	   ../src/utils/classes/Draw/bullet/bullet.o \
+	   ../src/utils/classes/sysBullets/sysBullet.o 
 
 FILE_BIN = Asteroid.bin
 LIBS = -lGL -lglfw -lGLEW 
