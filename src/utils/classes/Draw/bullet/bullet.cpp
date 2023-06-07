@@ -2,6 +2,8 @@
 #include <iostream>
 
 void DrawBullet::Init(){
+    this->translate=glm::vec3(0.0);
+    this->angle=0.0f;
     this->model = glm::mat4(1.0);
     this->model = glm::translate(this->model,this->initialPosition );
     this->model = glm::rotate(this->model, this->angle, glm::vec3(0.0f, 0.0f, 1.0f));
