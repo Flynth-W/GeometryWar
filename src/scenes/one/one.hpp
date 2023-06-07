@@ -1,6 +1,9 @@
 #pragma once
 #include "../stage.hpp"
 #include "../../utils/classes/nave/nave.hpp"
+#include "../../utils/classes/square/square.hpp"
+#include "../../utils/classes/sysSquares/sysSquares.hpp"
+#include "../../utils/classes/bullet/bullet.hpp"
 
 class OneStage:public Stage{
     private:
@@ -10,6 +13,9 @@ class OneStage:public Stage{
         Mouse *mouse;
         Stages stage;
         Nave nave;
+        //Square square;
+        SysSquare sysSquare;
+        CollisionsHandler handleCollision;
     public:
         void Init()   override;
         void Update() override;
