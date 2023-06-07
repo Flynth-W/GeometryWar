@@ -1,6 +1,6 @@
 #include "bullet.hpp"
 
-void Bullet::Init(glm::vec3 position, float angle){
+Bullet::Bullet(){
     Shader shadera("./shader/square.vs" ,"./shader/square.fs");
     square.setShader(shadera);
     float vertex[] = {
@@ -15,18 +15,27 @@ void Bullet::Init(glm::vec3 position, float angle){
     };
     square.setVetices(vertex,sizeof(vertex));
     this->radius=0.003;
+}
+void Bullet::Init(glm::vec3 position, float angle){
     square.setPosition(position);
+    square.Init();
     square.rotate(angle);
     square.move(0.0,0.05);
-    square.Init();
     this->position=square.position;
     this->run=true;
     this->type=TypeObjet::Bullet;
 }
 void Bullet::Update(){
     if( run ){
+        float limit=0.98;
         double speed = *deltaTime * 0.4;
         square.move(0.0,speed);
+        if( !( -limit < this->position->x && this->position->x < limit ) ){
+            this->run=false;
+        }
+        if( !( -limit < this->position->y && this->position->y < limit ) ){
+            this->run=false;
+        }
     }
 }
 void Bullet::Render(){
@@ -52,5 +61,13 @@ bool Bullet::getRun(){
     return this->run;
 }
 void Bullet::colision(Iobjet_colicion *a){
-    std::cout << "bullet" << std::endl;
+    if(a->type == TypeObjet::Square){
+        this->run=false;
+    }
+    if(a->type == TypeObjet::Nave){
+        std::cout << "crash nave" << std::endl;
+    }
+    if(a->type == TypeObjet::Bullet){
+        std::cout << "wow bullet" << std::endl;
+    }
 }
