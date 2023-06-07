@@ -6,17 +6,21 @@ void SysBullet::Init(){
     this->numBullets=0;
 }
 void SysBullet::AddBullet(glm::vec3 position, float angle){
-    bullets[numBullets]= new Bullet();
-        //bullet.setDeltaTime(deltaTime);
-        //bullet.Init( *this->position , this->angle );
-        //handleCollision->add(&bullet);
-    bullets[numBullets]->setDeltaTime(deltaTime); 
-    bullets[numBullets]->Init(position,angle); 
-
-    keyBullets[bullets[numBullets]]=numBullets;
-
-    handleCollision->add(bullets[numBullets]);
+    if(this->limitBall){
+        bullets[numBullets]->Init(position,angle); 
+    }else{
+        bullets[numBullets]= new Bullet();
+        bullets[numBullets]->setDeltaTime(deltaTime); 
+        bullets[numBullets]->Init(position,angle); 
+        keyBullets[bullets[numBullets]]=numBullets;
+        handleCollision->add(bullets[numBullets]);
+    }
     numBullets++;
+    
+    if(numBullets==10){
+        numBullets=0;
+        this->limitBall=true;
+    }
 }
 void SysBullet::Update(){
 
@@ -25,10 +29,12 @@ void SysBullet::Update(){
       item.second->Update();
     }
     else{
-      int numObj= keyBullets[item.second];
-      keyBullets.erase(item.second);
+      //int numObj= keyBullets[item.second];
+      //keyBullets.erase(item.second);
+      //cout << "DLETE bullet" << endl;
       //hndlCls->del(mapAstrs[numObj]);
-      //mapAstrs[numObj]->stt=SttObjClsn::None;
+      //handleCollision->del(bullets[numObj]);
+      //bullets[numObj];
       //colaDel.push(numObj);
     }
   };
