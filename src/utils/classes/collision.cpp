@@ -86,13 +86,17 @@ void CollisionsHandler::del(Iobjet_colicion *_obj){
 //  cout << " del obj sizeObj: " << mapObj.size()  << "sizeObjNum : " <<mapObjnum.size()<< endl;
 }
 StateCls CollisionsHandler::crash(Iobjet_colicion *a , Iobjet_colicion *b){
-    StateCls state=StateCls::None;
-    double distance = a->getRadio() + b->getRadio();
-    double distanceP = pow( (a->position.x - b->position.x),2 ) + pow( (a->position.y - b->position.y),2 );
-    distanceP = pow(distanceP ,0.5);
-    cout << distance << endl;
-    if(distance >= distanceP ){
-        return StateCls::True;
+    if( a->getRun() && b->getRun() ){
+
+        StateCls state=StateCls::None;
+        double distance = a->getRadio() + b->getRadio();
+        double distanceP = pow( (a->position->x - b->position->x),2 ) + pow( (a->position->y - b->position->y),2 );
+        distanceP = pow(distanceP ,0.5);
+        if(distance >= distanceP ){
+            return StateCls::True;
+        }
+        return StateCls::False;
+    }else{
+        return StateCls::False;
     }
-    return StateCls::False;
 };

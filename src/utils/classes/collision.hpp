@@ -8,12 +8,21 @@
 #include <iostream>
 using namespace std;
 
+enum class TypeObjet{
+    Square,
+    Nave,
+    Bullet
+};
+
 class Iobjet_colicion{
+    public:
+        glm::vec3 *position;
+        TypeObjet type;
     public:
         virtual glm::vec3 getPosition(){return glm::vec3(0.0);};
         virtual double getRadio(){return 0;};
-        virtual void colision(Iobjet_colicion *a){ cout << "colicion" << position.x <<endl; };
-        glm::vec3 position;
+        virtual void colision(Iobjet_colicion *a){};
+        virtual bool getRun(){return false;};
 };
 enum class StateCls{
   None,
